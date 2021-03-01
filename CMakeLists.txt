@@ -21,6 +21,7 @@ file(
 )
 
 add_executable(TwoBarLinkage ${source_files})
+set_target_properties(TwoBarLinkage PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.googletest googletest-download/CMakeLists.txt)
@@ -45,3 +46,4 @@ EXCLUDE_FROM_ALL)
 include_directories(./include)
 add_executable(tests ${test_files})
 target_link_libraries(tests gtest_main)
+set_target_properties(tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)

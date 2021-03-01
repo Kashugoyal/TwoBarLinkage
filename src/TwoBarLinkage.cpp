@@ -131,3 +131,26 @@ void TwoBarLinkage::add_e_space_obstacle()
         point[1] = obs_line.y(point[0]);
     }
 }
+
+void TwoBarLinkage::add_c_space_obstacle()
+{
+    Line obs_line(obstacle[0], obstacle[1]);
+    E_Point point = (obstacle[0][0] < obstacle[1][0]) ? obstacle[0] : obstacle[1];
+    while (true)
+    {
+        if (isReachable(point))
+        {
+            PathPlanner::Vec2i obs;
+            Theta_List conf = inverseKin(point).back();
+            obs.x = (int)(conf[0] * resolution / (2 * M_PI));
+            obs.y = (int)(conf[1] * resolution / (2 * M_PI));
+            planner.addCollision(obs);
+        }
+        if (point[0] > obstacle[1][0])
+        {
+            break;
+        }
+        point[0] += 2 * (l1 + l2) / resolution;
+        point[1] = obs_line.y(point[0]);
+    }
+}

@@ -2,6 +2,8 @@
 
 The repository contains c++ implementation of a two bar linkage with 2 DOF. 
 
+## Native
+
 To build:
 
 ```sh
@@ -16,6 +18,18 @@ To run the example:
     ./TwoBarLinkage
 ```
 
+## Docker
+
+To build:
+
+```sh
+    docker build -t two-bar-linkage . 
+```
+
+To run the example:
+```sh
+    docker run -t two-bar-linkage > output.txt 
+```
 
 
 ## Acknowledgements
