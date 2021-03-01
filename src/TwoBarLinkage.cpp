@@ -1,3 +1,7 @@
+/*
+    This file implements TwoBarLinkage.
+*/
+
 #include <cmath>
 #include "TwoBarLinkage.hpp"
 #define sq(a) pow(a, 2)
@@ -28,8 +32,16 @@ std::vector<Theta_List> TwoBarLinkage::get_path_c_space(const E_Point &source, c
     if (isReachable(source) && isReachable(target))
     {
         initialize_planner();
-        Theta_List source_conf(inverseKin(source).back());
-        Theta_List target_conf(inverseKin(target).back());
+        std::vector<Theta_List> solutions = inverseKin(source);
+        if(!solutions.size()){
+            return result;
+        }
+        Theta_List source_conf(solutions.back());
+        solutions = inverseKin(target);
+        if(!solutions.size()){
+            return result;
+        }
+        Theta_List target_conf(solutions.back());
 
         // angles are scaled to path planner grid resolution
         std::vector<PathPlanner::Vec2i> path(
@@ -59,8 +71,11 @@ std::vector<Theta_List> TwoBarLinkage::get_path_e_space(const E_Point &source, c
         for (auto coordinate = path.rbegin(); coordinate != path.rend(); ++coordinate)
         {
             // scaled back 
-            Theta_List conf(inverseKin(E_Point{coordinate->x / (0.5 * resolution / (l1 + l2)) - l1 - l2, coordinate->y / (0.5 * resolution / (l1 + l2)) - l1 - l2}).back());
-            result.push_back(conf);
+            std::vector<Theta_List> conf(inverseKin(E_Point{coordinate->x / (0.5 * resolution / (l1 + l2)) - l1 - l2, coordinate->y / (0.5 * resolution / (l1 + l2)) - l1 - l2}));
+            if(!conf.size()){
+                return {};
+            }
+            result.push_back(conf.back());
         }
     }
     return result;
@@ -94,9 +109,12 @@ std::vector<std::array<double, 2>> TwoBarLinkage::inverseKin(const E_Point &poin
     distance_sq = sq(point[0]) + sq(point[1]);
     alpha = acos((distance_sq + sq(l1) - sq(l2)) / (2 * l1 * sqrt(distance_sq)));
     beta = acos((sq(l1) + sq(l2) - sq(point[0]) - sq(point[1])) / (2 * l1 * l2));
-    gamma = atan2(point[1], point[0]);
-    solutions.push_back(std::array<double, 2>{absoluteAngle(gamma - alpha), absoluteAngle(M_PI - beta)});
-    solutions.push_back(std::array<double, 2>{absoluteAngle(gamma + alpha), absoluteAngle(beta - M_PI)});
+    if(!std::isnan(alpha) && !std::isnan(beta))
+    {
+        gamma = atan2(point[1], point[0]);
+        solutions.push_back(std::array<double, 2>{absoluteAngle(gamma - alpha), absoluteAngle(M_PI - beta)});
+        solutions.push_back(std::array<double, 2>{absoluteAngle(gamma + alpha), absoluteAngle(beta - M_PI)});
+    }
     return solutions;
 }
 

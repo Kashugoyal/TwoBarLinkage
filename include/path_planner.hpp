@@ -1,3 +1,8 @@
+/*
+    This is the header file for PathPlanner that implements A* search
+    This is directly taken from https://github.com/daancode/a-star. 
+*/
+
 #ifndef __ASTAR_HPP_8F637DB91972F6C878D41D63F7E7214F__
 #define __ASTAR_HPP_8F637DB91972F6C878D41D63F7E7214F__
 

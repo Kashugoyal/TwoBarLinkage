@@ -1,7 +1,11 @@
-#include "path_planner.hpp"
+/*
+    This is the file that implements A* based PathPlanner
+*/
+
+#include <cmath>
 #include <algorithm>
 #include <iostream>
-#include <cmath>
+#include "path_planner.hpp"
 
 using namespace std::placeholders;
 

@@ -1,3 +1,8 @@
+/*
+    This file contains the TwoBarLinkage class declaration.
+    The two barlinkage provides both FK and IK functionality along with Path Planning
+*/
+
 #ifndef TwoBarLinkage_HPP
 #define TwoBarLinkage_HPP
 
