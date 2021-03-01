@@ -5,8 +5,22 @@ project(TwoBarLinkage VERSION 0.1.0)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -ggdb")
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(TwoBarLinkage main.cpp path_planner.cpp two_bar.cpp)
+include_directories(./include)
+file(
+    GLOB
+    source_files
+    src/*.cpp
+)
 
+file(
+    GLOB
+    test_files
+    src/two_bar.cpp 
+    src/path_planner.cpp
+    test/*.cpp
+)
+
+add_executable(TwoBarLinkage ${source_files})
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.googletest googletest-download/CMakeLists.txt)
@@ -34,5 +48,5 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  EXCLUDE_FROM_ALL)
 
 
-add_executable(tests test.cpp two_bar.cpp path_planner.cpp)
+add_executable(tests ${test_files})
 target_link_libraries(tests gtest_main)
