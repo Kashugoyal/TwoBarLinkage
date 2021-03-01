@@ -8,7 +8,7 @@
 
 int main()
 {
-    double l1= 3, l2=5;
+    double l1= 1, l2=1;
     std::cout << "Create a new chain with Link1 length " << l1 << " units and Link2 length " << l2 << " units." << std::endl;
     TwoBarLinkage chain(l1, l2, 100);
     std::cout << "*****Forward Kinematics********" << std::endl;
