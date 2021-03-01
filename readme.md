@@ -14,7 +14,7 @@ Please see `src/main.cpp` for usage examples.
 
 The Path Planning can be done in two ways:
  - Configuration space i.e. [0, 2 Pi] for each of the angles
- - Euclidian Space
+ - Euclidian Space i.e [-(L1 + l2), L1 + l2] for both X and Y coordinate of the end effector
 
 The TwoBarLinkage class implements both these approaches. One could visualize the outputs from both these approaches to understand the difference.
 
@@ -22,7 +22,7 @@ Next Scope:
  - Add visualizations
  - Allow other obstacle shapes 
  - Implement a custom planner optimized for C Space path planning
- - Add a Command Line Iterface
+ - Add a Command Line Interface
 
 ## Native
 
