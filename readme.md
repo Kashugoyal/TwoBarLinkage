@@ -26,6 +26,8 @@ Next Scope:
 
 ## Native
 
+> Requrements: g++ (build essentials), cmake, git
+
 To build:
 
 ```sh
