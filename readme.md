@@ -10,11 +10,12 @@ To build:
     mkdir build
     cd build && cmake ..
     make
+    cd ..
 ```
 
 To run the example:
 ```sh
-    cd build
+    cd bin
     ./TwoBarLinkage
 ```
 
