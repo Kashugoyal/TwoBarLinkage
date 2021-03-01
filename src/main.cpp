@@ -1,6 +1,6 @@
 /*
     Example for using TwoBarLinakge for IK, FK and PathPlanning
-
+    Author: Kashish Goyal
 */
 
 #include <iostream>

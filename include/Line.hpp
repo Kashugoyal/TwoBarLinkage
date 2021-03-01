@@ -1,5 +1,6 @@
 /*
-    This file defines a Line Class 
+    This file defines a Line Class
+    Author: Kashish Goyal
 */
 
 #ifndef LINE_HPP

@@ -1,5 +1,6 @@
 /*
     This file implements TwoBarLinkage.
+    Author: Kashish Goyal
 */
 
 #include <cmath>

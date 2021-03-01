@@ -1,3 +1,8 @@
+/*
+	Tests for the TwoBarLinkage class
+	Author: Kashish Goyal	
+*/
+
 #include "gtest/gtest.h"
 #include <cmath>
 #include "TwoBarLinkage.hpp"

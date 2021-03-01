@@ -1,3 +1,6 @@
+# TwoBarLinkage Robotic Arm
+# Author: Kashish Goyal 
+
 cmake_minimum_required(VERSION 3.0.0)
 project(TwoBarLinkage VERSION 0.1.0)
 
