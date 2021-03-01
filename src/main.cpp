@@ -3,8 +3,8 @@
 
 int main()
 {
-    // TwoBarLinkage chain(3, 5, 100);
-    TwoBarLinkage chain;
+    TwoBarLinkage chain(3, 5, 100);
+    // TwoBarLinkage chain;
     E_Point fk(chain.forwardKin(Theta_List {1.57, 0}));
     std::vector<Theta_List> ik(chain.inverseKin(E_Point {3, 2}));
 
