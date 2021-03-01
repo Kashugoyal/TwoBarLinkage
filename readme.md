@@ -58,6 +58,7 @@ To run the example:
 > Please look at `src/main.cpp` to understand how to use the TwoBarLinkage functions
 
 ## Acknowledgements
- - https://github.com/daancode/a-star
- - http://hades.mech.northwestern.edu/index.php/Modern_Robotics
+ - A* Path Planner: https://github.com/daancode/a-star
+ - Robotics (in general): http://hades.mech.northwestern.edu/index.php/Modern_Robotics
+
 
